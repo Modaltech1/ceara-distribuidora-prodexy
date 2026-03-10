@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 4% 11%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 4% 17%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 4% 14%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 45 100% 50%;
+    --primary-foreground: 240 4% 11%;
+
+    --secondary: 240 4% 17%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 3% 20%;
+    --muted-foreground: 240 3% 61%;
+
+    --accent: 45 100% 50%;
+    --accent-foreground: 240 4% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 3% 24%;
+    --input: 240 3% 24%;
+    --ring: 45 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 4% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 240 4% 11%;
+    --sidebar-accent: 240 4% 17%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 3% 24%;
+    --sidebar-ring: 45 100% 50%;
+
+    --font-display: 'Archivo Black', sans-serif;
+    --font-body: 'Roboto Flex', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

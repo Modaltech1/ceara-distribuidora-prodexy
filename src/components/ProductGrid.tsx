@@ -78,7 +78,7 @@ export function ProductGrid() {
           .map((product) => product.categoria || "Outros")
           .filter(Boolean)
       )
-    );
+    ).sort((a, b) => a.localeCompare(b, "pt-BR"));
   }, [products]);
 
   const filteredCategories = activeCategory ? [activeCategory] : categories;
@@ -101,8 +101,8 @@ export function ProductGrid() {
           <button
             onClick={() => scrollToCategory(null)}
             className={`shrink-0 rounded-full px-4 text-sm font-semibold transition-colors h-9 ${!activeCategory
-                ? "bg-primary text-primary-foreground"
-                : "border border-border bg-card text-muted-foreground"
+              ? "bg-primary text-primary-foreground"
+              : "border border-border bg-card text-muted-foreground"
               }`}
           >
             Todos
@@ -113,8 +113,8 @@ export function ProductGrid() {
               key={cat}
               onClick={() => scrollToCategory(cat)}
               className={`shrink-0 rounded-full px-4 text-sm font-semibold transition-colors h-9 ${activeCategory === cat
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-border bg-card text-muted-foreground"
+                ? "bg-primary text-primary-foreground"
+                : "border border-border bg-card text-muted-foreground"
                 }`}
             >
               {cat}

@@ -98,7 +98,11 @@ export default function MyOrders() {
           pedidos.map((pedido) => {
             const config = statusConfig[pedido.status] || statusConfig.novo;
             return (
-              <div key={pedido.id} className="bg-card rounded-lg p-4 space-y-3 border border-border">
+              <button
+                key={pedido.id}
+                onClick={() => navigate(`/orders/${pedido.id}`)}
+                className="w-full rounded-lg border border-border bg-card p-4 space-y-3 text-left transition-colors hover:bg-muted/40"
+              >
                 <div className="flex items-center justify-between gap-3">
                   <span className="font-display text-sm">#{pedido.codigo}</span>
                   <span className="text-xs text-muted-foreground font-body shrink-0">{formatDate(pedido.criado_em)}</span>
@@ -114,13 +118,12 @@ export default function MyOrders() {
                   {["novo", "saiu_para_entrega", "entregue"].map((status, index) => (
                     <div
                       key={status}
-                      className={`h-1 flex-1 rounded-full ${
-                        ["novo", "saiu_para_entrega", "entregue"].indexOf(pedido.status) >= index ? "bg-primary" : "bg-muted"
-                      }`}
+                      className={`h-1 flex-1 rounded-full ${["novo", "saiu_para_entrega", "entregue"].indexOf(pedido.status) >= index ? "bg-primary" : "bg-muted"
+                        }`}
                     />
                   ))}
                 </div>
-              </div>
+              </button>
             );
           })
         )}
